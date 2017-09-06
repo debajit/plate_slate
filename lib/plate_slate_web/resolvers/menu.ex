@@ -1,4 +1,4 @@
-defmodule PlateSlate.Resolvers.Menu do
+defmodule PlateSlateWeb.Resolvers.Menu do
   alias PlateSlate.Menu
 
   def menu_items(_, args, _) do
