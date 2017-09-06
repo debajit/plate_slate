@@ -19,9 +19,9 @@ defmodule PlateSlateWeb.Schema do
       resolve fn
         _, %{matching: term}, _ ->
           query =
-          Menu.Item
-          |> where([item], ilike(item.name, ^"%#{term}%"))
-        {:ok, Repo.all(query)}
+            Menu.Item
+            |> where([item], ilike(item.name, ^"%#{term}%"))
+          {:ok, Repo.all(query)}
 
         _, _, _ ->
           {:ok, Repo.all(Menu.Item)}
