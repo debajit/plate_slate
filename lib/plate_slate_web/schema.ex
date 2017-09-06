@@ -2,6 +2,8 @@ defmodule PlateSlateWeb.Schema do
   use Absinthe.Schema
 
   import_types __MODULE__.MenuTypes
+  import_types __MODULE__.OrderingTypes
+  import_types Absinthe.Type.Custom
 
   alias PlateSlateWeb.Resolvers
 
@@ -19,22 +21,21 @@ defmodule PlateSlateWeb.Schema do
     end
   end
 
-  object :order do
-
-  end
+  # object :order do
+  # end
 
   enum :sort_order do
     value :asc
     value :desc
   end
 
-  scalar :decimal do
-    parse fn
-      %{value: value}, _ ->
-        Decimal.parse(value)
-      _, _ ->
-        :error
-    end
-    serialize &to_string/1
-  end
+  # scalar :decimal do
+  #   parse fn
+  #     %{value: value}, _ ->
+  #       Decimal.parse(value)
+  #     _, _ ->
+  #       :error
+  #   end
+  #   serialize &to_string/1
+  # end
 end
