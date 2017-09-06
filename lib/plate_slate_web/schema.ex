@@ -16,8 +16,14 @@ defmodule PlateSlateWeb.Schema do
   query do
     field :menu_items, list_of(:menu_item) do
       arg :filter, :menu_items_filter
+      arg :order, :sort_order, default_value: :asc
       resolve &Resolvers.Menu.menu_items/3
     end
+  end
+
+  enum :sort_order do
+    value :asc
+    value :desc
   end
 
   # Values sent from the user
