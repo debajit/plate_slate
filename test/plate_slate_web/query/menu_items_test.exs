@@ -13,10 +13,9 @@ defmodule PlateSlateWeb.Query.MenuItemsTest do
     }
     """
 
-    payload = %{"query" => query}
+    conn = get build_conn(), "/", query: query # Blank Phoenix connection
 
-    conn = get build_conn(), "/", query: query
-
+    # json_response decodes the JSON
     assert %{"data" => %{"menuItems" => [item | _]}} = json_response(conn, 200)
     assert item == %{"name" => "Rueben"}
   end
