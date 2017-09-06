@@ -76,9 +76,7 @@ defmodule PlateSlateWeb.Query.MenuItemsTest do
       |> Plug.Conn.put_req_header("content-type", "application/json")
       |> post("/", %{"query" => @query, "variables" => variables})
 
-    # json_response decodes the JSON
     assert %{"data" => %{"menuItems" => [item]}} = json_response(conn, 200)
     assert item == %{"name" => "Rueben"}
   end
-
 end
